@@ -53,7 +53,7 @@ sensitive_info_extractor/
 
 ### 方法二：使用预编译可执行文件
 
-1. 下载对应平台的可执行文件
+1. 下载对应平台的可执行文件 [windows](https://github.com/muyuanlove/sensitive_info_extractor/releases/tag/v3.0.0)
 2. 解压到任意目录
 3. 双击运行 `SensitiveInfoExtractor`
 
@@ -192,7 +192,7 @@ A: 检查是否安装了PyInstaller，确保Python环境正常。
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+本项目采用 MIT 许可证 - 详见 [LICENSE](https://github.com/muyuanlove/sensitive_info_extractor/blob/main/LICENSE) 文件
 
 ## 🙏 致谢
 
