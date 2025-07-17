@@ -1,8 +1,10 @@
 # 🔍 敏感信息提取工具
 
-一个强大的敏感信息扫描工具，支持多线程处理和友好的GUI界面，可以扫描指定目录下的文件并提取敏感信息。
+一个强大的敏感信息扫描工具，支持多线程处理和友好的GUI界面，可以扫描指定目录下的文件并提取敏感信息，主要解决内网渗透过程中，目标敏感文件过多，收集效率过低的问题。
 
 ![image-20250717194818631](./assets/image-20250717194818631.png)
+
+![image-20250717201054312](./assets/image-20250717201054312.png)
 
 ## ✨ 主要特性
 
@@ -18,12 +20,12 @@
 
 ```
 sensitive_info_extractor/
-├── sensitive_extractor.py    # 主程序
+├── sensitive_extractor.py   # 主程序
 ├── patterns.json            # 正则表达式配置文件
-├── build.py                 # 打包脚本
+├── build_script.py          # 打包脚本
 ├── requirements.txt         # 依赖列表
-├── README.md               # 说明文档
-└── release/                # 发布包目录
+├── README.md                # 说明文档
+└── release/                 # 发布包目录
     ├── windows/
     ├── linux/
     └── macos/
