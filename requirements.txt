@@ -1,0 +1,22 @@
+# 敏感信息提取工具依赖列表
+# 核心依赖 (Python标准库，无需安装)
+# - tkinter (GUI界面)
+# - threading (多线程)
+# - re (正则表达式)
+# - json (JSON处理)
+# - os, sys, pathlib (系统操作)
+# - concurrent.futures (线程池)
+# - mimetypes (文件类型检测)
+# - datetime (时间处理)
+
+# 打包依赖 (仅用于构建可执行文件)
+PyInstaller>=5.0.0
+
+# 可选依赖 (用于增强功能)
+# chardet>=4.0.0  # 字符编码检测 (可选)
+# colorama>=0.4.0  # 控制台颜色输出 (可选)
+
+# 开发依赖 (仅用于开发环境)
+# pytest>=7.0.0  # 单元测试
+# flake8>=4.0.0  # 代码检查
+# black>=22.0.0  # 代码格式化

@@ -1,0 +1,152 @@
+{
+  "大陆手机号": {
+    "regex": "\\b1[3456789]\\d{9}\\b",
+    "description": "中国大陆手机号码",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "身份证": {
+    "regex": "\\b\\d{17}[\\dXx]\\b",
+    "description": "中国居民身份证号码",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "邮箱": {
+    "regex": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b",
+    "description": "电子邮箱地址",
+    "risk_level": "中",
+    "enabled": true
+  },
+  "银行卡": {
+    "regex": "\\b\\d{16,19}\\b",
+    "description": "银行卡号",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "域名": {
+    "regex": "(?i)\\b(?:[a-zA-Z0-9-]+\\.)+(?:com|net|org|io|co|edu|gov|mil|biz|info|me|us|ca|uk|de|fr|it|es|au|nz|jp|kr|cn|ru|br|in|mx|nl)\\b",
+    "description": "域名地址",
+    "risk_level": "低",
+    "enabled": true
+  },
+  "路径": {
+    "regex": "(?:https?://|/|\\.\\./|\\./|/[\\w-]+)/(?:[\\w/.?%&=-]*|[\\w-]+)",
+    "description": "文件路径",
+    "risk_level": "低",
+    "enabled": true
+  },
+  "URL": {
+    "regex": "(?i)\\b((?:https?|ftp|file):\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,63}\\b(?:[-a-zA-Z0-9@:%_\\+.~#?&\\/=]*))\\b",
+    "description": "网址链接",
+    "risk_level": "低",
+    "enabled": true
+  },
+  "JWT": {
+    "regex": "\\bey[A-Za-z0-9-_]+\\.[A-Za-z0-9-_]+\\.[A-Za-z0-9-_]+\\b",
+    "description": "JWT令牌",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "JDBC": {
+    "regex": "jdbc:[a-zA-Z]+:\\/\\/[^\\s]*",
+    "description": "JDBC数据库连接字符串",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "认证头": {
+    "regex": "(?i)\\bAuthorization:\\s*(?:Bearer|Basic|Digest)\\s+(?:[A-Za-z0-9-._~+/]+=*|[\\w%]{2}==)\\b",
+    "description": "HTTP认证头",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "账户密码": {
+    "regex": "(?:username|user|account)\\s*[:=]\\s*[\\'\\\"](.*?)[\\'\\\"]\\s*,\\s*(?:password|pass)\\s*[:=]\\s*[\\'\\\"](.*?)[\\'\\\"]",
+    "description": "用户名和密码组合",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "ticket": {
+    "regex": "\\bjsapi_ticket\\b",
+    "description": "API票据",
+    "risk_level": "中",
+    "enabled": true
+  },
+  "加密算法": {
+    "regex": "(?i)\\b(AES|DES|3DES|RC4|RSA|ECC|SM2|SM3|SM4|Blowfish|HMAC)\\b",
+    "description": "加密算法名称",
+    "risk_level": "低",
+    "enabled": true
+  },
+  "密钥": {
+    "regex": "(?i)(?:encryption|secret|private|api|auth|access|key)\\s*[:=]\\s*[\"\\']?([0-9a-fA-F]{32,})[\"\\']?",
+    "description": "加密密钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "偏移量": {
+    "regex": "(?i)(?:iv|offset|init_vector)\\s*[:=]\\s*[\"\\']?([0-9a-fA-F]{8,})[\"\\']?",
+    "description": "加密偏移量",
+    "risk_level": "中",
+    "enabled": true
+  },
+  "swagger": {
+    "regex": "(?i)\\b((?:https?://)?(?:[a-zA-Z0-9-\\.]+)\\/(?:v1|v2|v3|docs|swagger|apidocs|api-docs|open-api)?\\/?(swagger|api-docs)(?:\\.json)?)\\b",
+    "description": "Swagger API文档地址",
+    "risk_level": "中",
+    "enabled": true
+  },
+  "oss": {
+    "regex": "https?://[^\\'\")\\s]*oss[^\\'\")\\s]+",
+    "description": "对象存储服务地址",
+    "risk_level": "中",
+    "enabled": true
+  },
+  "access_key": {
+    "regex": "(?i)\\baccess[_]?key\\s*[:=]\\s*[\"\\']([^\"\\']+)[\"\\']",
+    "description": "访问密钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "oss_key": {
+    "regex": "(?i)\\boss\\s*[_\\s]*(?:key)?\\s*[=:]\\s*[\\'\"]([A-Z0-9]+)[\\'\"]",
+    "description": "OSS访问密钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "apikey": {
+    "regex": "(?i)\\bapi[_]?key\\s*[=:]\\s*[\"\\']([^\"\\']+)[\"\\']",
+    "description": "API密钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "apisecret": {
+    "regex": "(?i)\\bapi[_]?secret\\s*[=:]\\s*[\"\\']([^\"\\']+)[\"\\']",
+    "description": "API秘钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "app_key": {
+    "regex": "(?i)\\bAppKey\\s*:\\s*[\"\\']([^\"\\']+)[\"\\']",
+    "description": "应用密钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "app_secret": {
+    "regex": "(?i)\\bAPPSECRET\\s*:\\s*[\"\\']([^\"\\']+)[\"\\']",
+    "description": "应用秘钥",
+    "risk_level": "高",
+    "enabled": true
+  },
+  "RSA公钥": {
+    "regex": "-----BEGIN(?:\\s+\\w+)?\\s+PUBLIC\\s+KEY-----\\s*(.*?)\\s*-----END(?:\\s+\\w+)?\\s+PUBLIC\\s+KEY-----",
+    "description": "RSA公钥",
+    "risk_level": "中",
+    "enabled": true
+  },
+  "RSA私钥": {
+    "regex": "-----BEGIN(?:\\s+RSA)?\\s+PRIVATE\\s+KEY-----\\s*(.*?)\\s*-----END(?:\\s+RSA)?\\s+PRIVATE\\s+KEY-----",
+    "description": "RSA私钥",
+    "risk_level": "高",
+    "enabled": true
+  }
+}
