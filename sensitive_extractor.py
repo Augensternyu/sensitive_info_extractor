@@ -272,13 +272,13 @@ class SensitiveInfoExtractor:
 
     def is_text_file(self, file_path: str) -> bool:
         """判断文件是否为文本文件"""
-        file_path = Path(file_path)
+        path_obj = Path(file_path)
 
         # 检查扩展名
-        if file_path.suffix.lower() in self.binary_extensions:
+        if path_obj.suffix.lower() in self.binary_extensions:
             return False
 
-        if file_path.suffix.lower() in self.text_extensions:
+        if path_obj.suffix.lower() in self.text_extensions:
             return True
 
         # 对于没有扩展名的文件，尝试使用MIME类型判断
@@ -365,8 +365,6 @@ class SensitiveInfoExtractor:
     def get_all_files(self, directory_path: str) -> List[str]:
         """获取目录中所有文件的路径"""
         all_files = []
-        directory_path = Path(directory_path)
-
         for root, dirs, files in os.walk(directory_path):
             # 跳过隐藏目录和常见的二进制目录
             dirs[:] = [d for d in dirs if not d.startswith('.') and d not in {
@@ -385,12 +383,11 @@ class SensitiveInfoExtractor:
 
     def scan_directory(self, directory_path: str, max_workers: int = 8) -> None:
         """使用多线程扫描目录中的所有文件"""
-        directory_path = Path(directory_path)
-
-        if not directory_path.exists():
+        # 保持 directory_path 为字符串，避免类型不匹配
+        if not os.path.exists(directory_path):
             raise FileNotFoundError(f"目录 {directory_path} 不存在")
 
-        if not directory_path.is_dir():
+        if not os.path.isdir(directory_path):
             raise NotADirectoryError(f"{directory_path} 不是一个目录")
 
         self.is_scanning = True
@@ -924,7 +921,8 @@ class SensitiveInfoGUI:
         """运行扫描（在单独线程中）"""
         try:
             workers = int(self.max_workers.get())
-            self.scanner.scan_directory(self.scan_directory.get(), workers)
+            if self.scanner is not None:
+                self.scanner.scan_directory(self.scan_directory.get(), workers)
 
             # 扫描完成后更新GUI
             self.root.after(0, self.scan_completed)
@@ -934,7 +932,7 @@ class SensitiveInfoGUI:
 
     def scan_completed(self):
         """扫描完成后的处理"""
-        if not self.scanner.scan_cancelled:
+        if self.scanner and not self.scanner.scan_cancelled:
             # 生成报告
             try:
                 self.scanner.generate_report(self.output_file.get())
